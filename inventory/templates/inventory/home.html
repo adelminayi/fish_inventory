@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Fish Shop</title></head>
+<body>
+<h2>Public Inventory</h2>
+<table border="1">
+<tr><th>Name</th><th>Size</th><th>Single Price</th></tr>
+{% for fish in fishes %}
+<tr>
+  <td>{{ fish.name }}</td>
+  <td>{{ fish.size }}</td>
+  <td>{{ fish.single_price }}</td>
+</tr>
+{% endfor %}
+</table>
+<p><a href="{% url 'login' %}">Login for Full Access</a></p>
+</body>
+
+</html>

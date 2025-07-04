@@ -1,0 +1,12 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="src.service.core.service_app_service_contract.interface.saver.bank.builder.iright_information_and_capital_adequacy_builder.RightInformationAndCapitalAdequacyHeaderModel" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

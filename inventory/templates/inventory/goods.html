@@ -1,0 +1,61 @@
+{% extends 'inventory/base.html' %}
+{% block title %}Goods{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Goods List</h1>
+
+<form method="get" class="mb-4">
+    <input type="text" name="search" class="form-control" placeholder="Search fish by name..." value="{{ search }}">
+</form>
+
+{% if logged_in %}
+<!-- Authenticated user view -->
+<table class="table table-bordered bg-white shadow-sm">
+    <thead class="table-secondary">
+        <tr>
+            <th>Fish Name</th>
+            <th>Size</th>
+            <th>Inventory</th>
+            <th>Wholesale Price ($)</th>
+            <th>Single Price ($)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fish in fishes %}
+        <tr>
+            <td>{{ fish.name }}</td>
+            <td>{{ fish.size }}</td>
+            <td>{{ fish.inventory_number }}</td>
+            <td>{{ fish.wholesale_price }}</td>
+            <td>{{ fish.single_price }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">No fish found.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<!-- Public view -->
+<table class="table table-bordered bg-white shadow-sm">
+    <thead class="table-primary">
+        <tr>
+            <th>Fish Name</th>
+            <th>Size</th>
+            <th>Single Price ($)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fish in fishes %}
+        <tr>
+            <td>{{ fish.name }}</td>
+            <td>{{ fish.size }}</td>
+            <td>{{ fish.single_price }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No fish found.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
